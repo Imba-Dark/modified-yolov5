@@ -178,14 +178,11 @@ class _RepeatSampler:
 class LoadImages:
     # YOLOv5 image/video dataloader, i.e. `python detect.py --source image.jpg/vid.mp4`
     def __init__(self, imgs, img_size=640, stride=32, auto=True):
-        images = []
-        videos = []
-        ni, nv = len(images), len(videos)
+        ni, nv = 0, 0
 
         self.imgs = imgs
         self.img_size = img_size
         self.stride = stride
-        self.files = images + videos
         self.nf = ni + nv  # number of files
         self.video_flag = [False] * ni + [True] * nv
         self.mode = 'image'
